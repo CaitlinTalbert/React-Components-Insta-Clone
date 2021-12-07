@@ -22,9 +22,9 @@ const App = () => {
   // To make the search bar work (which is stretch) we'd need another state to hold the search term.
 
   const likePost = postId => {
-    const newPosts = posts.map(post => {
+    const updatedPosts = posts.map(post => {
       if (post.id === postId) {
-        return { ...post, values: !post.values }
+        return { ...post, likes: post.likes + 1}
       } else {
         return post; 
       }
@@ -40,7 +40,7 @@ const App = () => {
         - if the `id` of the post matches `postId`, return a new post object with the desired values (use the spread operator).
         - otherwise just return the post object unchanged.
      */
-    setPosts(newPosts); 
+    setPosts(updatedPosts); 
   };
 
   return (
